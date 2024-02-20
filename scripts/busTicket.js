@@ -3,7 +3,7 @@ let totalFare = 0;
 
 function keyPressed(seatId){
   if (selectedSeats.length >= 4) {
-    alert("You can only select up to four seats.");
+    alert("You can only buy up to four seats.");
     return;
   }
 
@@ -39,7 +39,7 @@ function updateTable() {
     
     const fareCell = document.createElement('td');
     fareCell.textContent = '550';
-    fareCell.classList.add('text-right', 'pr-4');
+    fareCell.classList.add('text-center', 'pr-4');
     
     newRow.appendChild(seatCell);
     newRow.appendChild(classCell);
