@@ -47,7 +47,7 @@
     </nav>
 
     <!-- banner part -->
-    <header id="landingPage" class="">
+    <header id="landingScreen" class="">
       <div class="mt-4 ">
         <div class="card  w-100 min-h-96 bg-base-100 shadow-xl bg-[url(./images/banner.png)] bg-no-repeat bg-cover image-full bg-center  mx-4 text-center flex flex-col justify-center items-center">
             <!-- <figure ><img class="bg-cover w-100 bg-no-repeat" src="./images/banner.png" alt="bus" /></figure> -->
@@ -55,7 +55,7 @@
               <h2 class="card-title justify-center text-4xl pb-4">End-to-End Travel with <span class="text-green-500">NB Paribahan!</span></h2>
               <p class="pb-3">Yes, you can run unit tests and view the results directly within the app. <br> The integrated testing features allow for a streamlined .</p>
               <div class="card-actions justify-center">
-                <button class="btn text-black bg-green-500">Buy Tickets</button>
+                <button onclick="busTicket()" class="btn text-black bg-green-500">Buy Tickets</button>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@
     </header>  
 
     <!-- main part -->
-    <main class="my-4 px-4 hidden">
+    <main id="ticketFormScreen" class="my-4 px-4 hidden">
       <section class="border-2  border-t-green-400 rounded-lg py-4 ">
         <div class=" ">
           <h1 class="text-2xl text-center">N.B Paribahan</h1>
@@ -153,29 +153,20 @@
           <hr>
           
           <div class="flex items-end justify-end  p-4"> <img  src="./images/steering-wheel.png" alt=""> </div>
-          <!-- <div class="grid grid-cols-4 gap-4 border-y-2 py-4">
-            <div id="A1">A1</div>
-            <div id="A2">A2</div>
-            <div id="A3">A3</div>
-            <div id="A4">A4</div>
-            <div id="B1">B1</div>
-            <div id="B2">B2</div>
-            <div id="B3">B3</div>
-            <div id="B4">B4</div>
-          </div> -->
+          
 
           <!-- practice seats-->
           <div class="flex justify-between gap-1 my-1 w-full py-4 ">
-            <kbd class="kbd px-6">A1</kbd>
-            <kbd class="kbd px-6 mr-8">A2</kbd>
-            <kbd class="kbd px-6">A3</kbd>
-            <kbd class="kbd px-6">A4</kbd>
+            <kbd onclick="keyPressed(id)" id="A1" class="kbd px-6">A1</kbd>
+            <kbd onclick="keyPressed(id)" id="A2" class="kbd px-6 mr-8">A2</kbd>
+            <kbd onclick="keyPressed(id)" id="A3" class="kbd px-6">A3</kbd>
+            <kbd onclick="keyPressed(id)" id="A4" class="kbd px-6">A4</kbd>
           </div> 
           <div class="flex justify-between gap-1 my-1 w-full py-4 border-b-2">
-            <kbd class="kbd px-6 ">B1</kbd>
-            <kbd class="kbd px-6 mr-8">B2</kbd>
-            <kbd class="kbd px-6 ">B3</kbd>
-            <kbd class="kbd px-6 ">B4</kbd>
+            <kbd onclick="keyPressed(id)" id="B1" class="kbd px-6 ">B1</kbd>
+            <kbd onclick="keyPressed(id)" id="B2" class="kbd px-6 mr-8">B2</kbd>
+            <kbd onclick="keyPressed(id)" id="B3" class="kbd px-6 ">B3</kbd>
+            <kbd onclick="keyPressed(id)" id="B4" class="kbd px-6 ">B4</kbd>
           </div> 
 
         </div>
@@ -197,7 +188,7 @@
                 <!-- row 1 -->
                 <tr>
                   
-                  <td>A2</td>
+                  <td class="seatPosition"></td>
                   <td class="text-center">Economy</td>
                   <td class="text-right pr-4">550</td>
                 </tr>
@@ -219,20 +210,20 @@
             <div class="text-left pl-4 text-xl">Grand Total</div>
             <div class="pr-4">1650</div>
           </div>
-          <button class="btn btn-success w-full px-6">Next</button>
+          <button onclick="buyingSuccess()" class="btn btn-success w-full px-6">Next</button>
         </div>
       </section>
 
       
     </main>
     <!-- section-3 successful modal -->
-    <section class="flex flex-col justify-center items-center text-center gap-2 my-4 py-4 shadow-xl hidden">
+    <section id="successModalScreen" class="flex flex-col justify-center items-center text-center gap-2 my-4 py-4 shadow-xl hidden min-h-screen">
       <img src="./images/success.png" alt="">
       <h2 class="text-2xl">SUCCESS</h2>
       <p>Thank you for Booking Our Bus Seats. <br> 
         We are working hard to find the best service and deals for you. </p>
       <p class="text-gray-500">Shortly you will find a confirmation in your email.</p>
-      <button class="btn btn-success min-w-56 rounded-3xl">Continue</button>
+      <button onclick="backToHome()" class="btn btn-success min-w-56 rounded-3xl">Continue</button>
 
     </section>
 
@@ -264,6 +255,9 @@
         </div>
       </nav>
     </footer>
+
+    <script src="./scripts/busTicket.js"></script>
+    <script src="./scripts/utility.js"></script>
 
 </body>
 </html>
