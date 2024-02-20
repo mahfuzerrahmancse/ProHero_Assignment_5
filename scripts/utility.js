@@ -12,9 +12,8 @@ function showScreenById(showParam){
     
 }
 
-// function setSeatById(setPosition,putSeatId){
-//     const element = document.getElementById(setPosition);
-//     element.innerText = putSeatId;
-    
-// }
+function setBackgroundColorById(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.add('bg-green-400');
+}
 

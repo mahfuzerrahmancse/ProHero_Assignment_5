@@ -1,18 +1,61 @@
-function keyPressed(param){
-    // console.log('key paici');
-    // const seatId=  document.getElementById(param);
-    // setSeatById('seatPosition',seatId);
+let selectedSeats = [];
+let totalFare = 0;
 
-    const seatId=  document.getElementById(param);
-    const seat = seatId.innerText;
-    console.log('seat no:',seat);
-    
+function keyPressed(seatId){
+  if (selectedSeats.length >= 4) {
+    alert("You can only select up to four seats.");
+    return;
+  }
 
-    const setId = document.getElementsByClassName('seatPosition');
-    setId.innerText =seat;
-    console.log('new seat no:',setId.innerText);
+  const seatElement = document.getElementById(seatId);
+  const seatIndex = selectedSeats.indexOf(seatId);
 
+  if (seatIndex === -1) {
+    selectedSeats.push(seatId);
+    seatElement.classList.add('bg-green-400');
+    totalFare += 550; // Update fare for each selected seat
+  } else {
+    selectedSeats.splice(seatIndex, 1);
+    seatElement.classList.remove('bg-green-400');
+    totalFare -= 550; // Update fare for each deselected seat
+  }
+
+  // Update table and total fare display
+  updateTable();
+  updateTotalFare();
 }
+
+function updateTable() {
+  const seatTableBody = document.querySelector('#seatTable tbody');
+  seatTableBody.innerHTML = ''; // Clear existing rows
+
+  selectedSeats.forEach(seatId => {
+    const newRow = document.createElement('tr');
+    const seatCell = document.createElement('td');
+    seatCell.textContent = seatId;
+    
+    const classCell = document.createElement('td');
+    classCell.textContent = 'Economy';
+    
+    const fareCell = document.createElement('td');
+    fareCell.textContent = '550';
+    fareCell.classList.add('text-right', 'pr-4');
+    
+    newRow.appendChild(seatCell);
+    newRow.appendChild(classCell);
+    newRow.appendChild(fareCell);
+    
+    seatTableBody.appendChild(newRow);
+  });
+}
+
+function updateTotalFare() {
+  document.getElementById('totalFare').textContent = totalFare;
+  document.getElementById('grandTotal').textContent = totalFare;
+  document.getElementById('seatIncrease').textContent = selectedSeats.length;
+  document.getElementById('seatDecrease').textContent =8- selectedSeats.length;
+}
+
 
 
 function busTicket(){
