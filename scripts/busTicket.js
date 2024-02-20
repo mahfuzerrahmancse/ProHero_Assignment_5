@@ -53,10 +53,8 @@ function updateTotalFare() {
   document.getElementById('totalFare').textContent = totalFare;
   document.getElementById('grandTotal').textContent = totalFare;
   document.getElementById('seatIncrease').textContent = selectedSeats.length;
-  document.getElementById('seatDecrease').textContent =8- selectedSeats.length;
+  document.getElementById('seatDecrease').textContent = 8- selectedSeats.length;
 }
-
-
 
 function busTicket(){
     // console.log('ticket form connected');
